@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PizzeriaFast</string>
+    <string name="WashingNameEdit">Insert name of your pizzeria</string>
+    <string name="NumberOfBoxesEdit">Insert number of couriers</string>
+    <string name="DefaultWashingName">Tasty pizza</string>
+    <string name="DefaultBoxesNumber">3</string>
+    <string name="OkFirstTime">Confirm</string>
+    <string name="ButtonNewOrder">New order</string>
+    <string name="TextModel">Pizzas name</string>
+    <string name="TextColor">Color</string>
+    <string name="TextNumber">Government sign of car</string>
+    <string name="TextPhone">Phone</string>
+    <string name="OkMakeOrder">Confirm</string>
+    <string name="Timetobegin">Time to begin</string>
+    <string name="TimeLength">Length of work</string>
+    <string name="ErrorNumber">Error insert</string>
+    <string name="TimeText">Time</string>
+    <string name="YesChange">Yes</string>
+    <string name="NoChange">No</string>
+    <string name="CourierText">Courier</string>
+    <string name="DeleteButton">Delete</string>
+    <string name="EditButton">Edit</string>
+</resources>
