@@ -116,6 +116,12 @@ public class OrdersActivity extends Activity {
                         check.show();
                     }
                 });
+                builder.setPositiveButton(getResources().getString(R.string.change), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
                 builder.show();
 
 
@@ -127,7 +133,6 @@ public class OrdersActivity extends Activity {
     public void addPizza(View v) {
         Intent i = new Intent(this, AddPizzaActivity.class);
         startActivity(i);
-        this.finish();
     }
     private void sortPizzas() {
         Pizza temp;
