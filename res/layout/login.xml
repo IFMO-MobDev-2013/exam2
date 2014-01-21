@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:gravity="center"
+        >
+    <Space
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="3"/>
+
+    <EditText
+            android:id="@+id/car_wash_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Name"
+            android:inputType="textNoSuggestions">
+    </EditText>
+
+    <EditText
+            android:id="@+id/box_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="couriers count"
+            android:inputType="number">
+    </EditText>
+
+    <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="let's get started!">
+    </Button>
+
+    <Space
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="2"/>
+
+</LinearLayout>
+
