@@ -9,7 +9,7 @@ public class MyDataBasePizzasHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
 
     public static final String _ID = "_id";
-    public static final String DATABASE_NAME = "pizzadb";
+    public static final String DATABASE_NAME = "pizzaqdb";
     public static final String MODEL = "model";
     public static final String TIME = "time";
     public static final String BOX = "box";
