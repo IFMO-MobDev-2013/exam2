@@ -16,5 +16,7 @@
     <string name="TimeLength">Length of work</string>
     <string name="ErrorNumber">Error insert</string>
     <string name="TimeText">Time</string>
-    <string name="CourierText">Courier</string>
+    <string name="YesChange">Yes</string>
+    <string name="NoChange">No</string>
+    <string name="CourierText">Courier</string><string name="DeleteButton">Delete</string><string name="EditButton">Edit</string>
 </resources>

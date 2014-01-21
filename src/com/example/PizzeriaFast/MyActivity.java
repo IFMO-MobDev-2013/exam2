@@ -1,21 +1,21 @@
 package com.example.PizzeriaFast;
 
-import android.app.ActionBar;
-import android.app.Activity;
+import android.app.*;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MyActivity extends Activity {
 
@@ -25,6 +25,8 @@ public class MyActivity extends Activity {
 
     MyAdapter adapter;
     ArrayList<Order> array;
+    ArrayList<Integer> arrayID;
+    ArrayList<Integer> arrayID_2;
     ListView listView;
     int useTime[];
 
@@ -94,6 +96,8 @@ public class MyActivity extends Activity {
         int phone_column = cursor.getColumnIndex(MyDataBasePizzasHelper.PHONE);
 
         array = new ArrayList<Order>();
+        arrayID = new ArrayList<Integer>();
+        arrayID_2 = new ArrayList<Integer>();
         useTime = new int[50];
         for (int i = 0; i < useTime.length; i++)
             useTime[i] = 0;
@@ -103,17 +107,33 @@ public class MyActivity extends Activity {
                     cursor.getString(model_column), cursor.getString(phone_column)));
             for (int i = 0; i < cursor.getInt(length_column); i++)
                 useTime[cursor.getInt(time_column) + i]++;
+            arrayID.add(cursor.getInt(cursor.getColumnIndex(MyDataBasePizzasHelper._ID)));
         }
         cursor.close();
         sqLiteDatabase.close();
         myDataBasePizzasHelper.close();
 
-        adapter = new MyAdapter(getApplicationContext(), R.layout.orderitem, array);
+        boolean use_temp[] = new boolean[100];
+        for(int i = 0; i < array.size(); i++)
+            use_temp[i] = false;
+
+        adapter = new MyAdapter(getApplicationContext(), R.layout.orderitem, new ArrayList<Order>());
+        for(int i = 0; i < array.size(); i++)
+        {
+            int j0 = -1;
+            for(int j = 0; j < array.size(); j++)
+                if(!use_temp[j] && (j0 == -1 || array.get(j).time < array.get(j0).time))
+                    j0 = j;
+            adapter.add(array.get(j0));
+            arrayID_2.add(arrayID.get(j0));
+            use_temp[j0] = true;
+        }
 
         listView = (ListView) findViewById(R.id.listViewMain);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(goToOrder);
+        listView.setOnItemLongClickListener(goToMenu);
 
         adapter.notifyDataSetChanged();
     }
@@ -137,6 +157,106 @@ public class MyActivity extends Activity {
             startActivity(intent);
         }
     };
+
+    public void goToOrderEditable()
+    {
+            Intent intent = new Intent();
+
+            Order order = adapter.getItem(currentPosition);
+            intent.putExtra(Order.TIME, order.time);
+            intent.putExtra(Order.MODEL, order.model);
+            intent.putExtra(Order.PHONE, order.phone);
+            intent.putExtra(Order.LENGTH, order.length);
+            intent.putExtra(Order.BOX, order.box);
+
+            intent.putExtra(Order.NEWORDER, false);
+            intent.putExtra(Order.EDITABLE, true);
+            intent.putExtra(Order.USESTABLE, useTime);
+            intent.setClass(getApplicationContext(), MakingOrder.class);
+            startActivity(intent);
+
+    }
+
+    public void deleteOrder()
+    {
+        int delID = arrayID_2.get(currentPosition);
+
+        MyDataBasePizzasHelper myDataBasePizzasHelper = new MyDataBasePizzasHelper(getApplicationContext());
+        SQLiteDatabase sqLiteDatabase = myDataBasePizzasHelper.getWritableDatabase();
+        sqLiteDatabase.delete(MyDataBasePizzasHelper.DATABASE_NAME, MyDataBasePizzasHelper._ID + "=" + delID, null);
+        sqLiteDatabase.close();
+        myDataBasePizzasHelper.close();
+        showOrders();
+    }
+
+    ActionMode mActionMode;
+    int currentPosition;
+
+    public AdapterView.OnItemLongClickListener goToMenu = new AdapterView.OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+            currentPosition = position;
+            DialogFragment newFragment = new MyAlertDialogFragmentAction();
+            newFragment.show(getFragmentManager(), "dialogact");
+            return true;
+        }
+    };
+
+    public class MyAlertDialogFragmentDelete extends DialogFragment {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+            Dialog dialog = new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.DeleteButton)
+                    .setPositiveButton(R.string.YesChange,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    deleteOrder();
+                                }
+                            }
+                    )
+                    .setNegativeButton(R.string.NoChange,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                }
+                            }
+                    )
+                    .setCancelable(true)
+                    .create();
+            dialog.setCanceledOnTouchOutside(false);
+            return dialog;
+        }
+    }
+
+    public class MyAlertDialogFragmentAction extends DialogFragment {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+            Dialog dialog = new AlertDialog.Builder(getActivity())
+                    .setPositiveButton(R.string.EditButton,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    goToOrderEditable();
+                                }
+                            }
+                    )
+                    .setNegativeButton(R.string.DeleteButton,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    DialogFragment newFragment = new MyAlertDialogFragmentDelete();
+                                    newFragment.show(getFragmentManager(), "dialog");
+                                }
+                            }
+                    )
+                    .setCancelable(true)
+                    .create();
+            dialog.setCanceledOnTouchOutside(false);
+            return dialog;
+        }
+    }
 
     public void newOrder(View view) {
         Intent intent = new Intent();
