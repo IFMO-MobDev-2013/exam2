@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp" android:layout_weight="1" android:padding="15dp">
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="@string/write_number"
+                android:id="@+id/phone"/>
+    </FrameLayout>
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp" android:layout_weight="1" android:padding="15dp">
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="@string/write_pizza_sort"
+                android:id="@+id/sort"/>
+    </FrameLayout>
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
+        <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/speed"/>
+    </FrameLayout>
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
+        <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/time"/>
+    </FrameLayout>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:text="@string/add_order"
+            android:id="@+id/button" android:layout_weight="1" android:layout_gravity="center"
+            android:onClick="addOrder"/>
+</LinearLayout>
