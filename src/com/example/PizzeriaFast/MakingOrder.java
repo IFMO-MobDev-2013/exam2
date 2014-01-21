@@ -69,7 +69,7 @@ public class MakingOrder extends Activity {
 
     void nextStep() {
         array = new ArrayList<CharSequence>();
-        if (newOrder) {
+
             for (int i = 0; i < 30; i++) {
                 boolean q = true;
                 for (int j = 0; j < lengthOfOrder; j++)
@@ -78,13 +78,14 @@ public class MakingOrder extends Activity {
                 if (q)
                     array.add(Order.makeTime(i));
             }
-        } else
-            array.add(Order.makeTime(order.time));
 
         adapter = new ArrayAdapter<CharSequence>(getApplicationContext(), android.R.layout.simple_spinner_item, array);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTime.setAdapter(adapter);
+
+        if(!newOrder)
+            spinnerTime.setSelection(order.time);
         adapter.notifyDataSetChanged();
 
         Button button = (Button) findViewById(R.id.buttonMakeOrderOk);
