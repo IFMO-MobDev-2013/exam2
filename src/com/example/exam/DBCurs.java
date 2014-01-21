@@ -45,7 +45,9 @@ public class DBCurs {
             cv.put(CUR, cur); cv.put(TIME, time);
             db.insert(TABLE_NAME, null, cv);
     }
-
+    public void delete(String cur, String time) {
+        db.delete(TABLE_NAME, CUR + " = ? and " + TIME + " = ?", new String[]{cur,time});
+    }
     public Cursor getAllData() {
         return db.query(TABLE_NAME, null, null, null, null, null, null);
     }

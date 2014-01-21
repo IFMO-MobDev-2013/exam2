@@ -6,7 +6,7 @@ package com.example.exam;
 public class Pizza {
     String name, phone, speed, time, adress;
     int cur;
-     String id;
+    String id;
     public Pizza(String name, String phone, String speed, String time, int cur, String id, String adress) {
         this.name = name;
         this.speed = speed;

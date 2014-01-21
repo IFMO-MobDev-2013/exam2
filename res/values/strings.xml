@@ -5,6 +5,11 @@
     <string name="enter_boxcount">Введите количество курьеров</string>
     <string name="enter_button">Принять</string>
     <string name="typename">Пицца вкусная</string>
+    <string name="chooseaction">Выберите действие</string>
+    <string name="delete">Удалить</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="checkdelete">Вы уверены, что хотите удалить заказ?</string>
     <string name="typeboxcount">3</string>
     <string name="toastalldigits">Количество боксов должно быть числом!</string>
     <string name="toastnonnull">Название не должно быть пустым</string>

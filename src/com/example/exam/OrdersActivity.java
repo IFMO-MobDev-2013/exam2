@@ -1,6 +1,8 @@
 package com.example.exam;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,7 @@ public class OrdersActivity extends Activity {
     private final String PID = "pid";
     DBAdapter db;
     DBName dbn;
+    DBCurs dbc;
     TextView pizzaname;
     ListView listView;
     Pizza[] pizzas;
@@ -32,14 +35,18 @@ public class OrdersActivity extends Activity {
         pizzaname = (TextView) findViewById(R.id.textView);
         listView = (ListView) findViewById(R.id.listView);
         db = new DBAdapter(this);
+        dbc = new DBCurs(this);
         dbn = new DBName(this);
         pizzaname.setText(dbn.getName());
-        pizzas = db.getAllPizza();
-        if (pizzas != null) makeList();
+        makeList();
     }
 
 
     private void makeList() {
+        pizzas = db.getAllPizza();
+        if (pizzas == null) {
+            pizzas = new Pizza[0];
+        }
         sortPizzas();
         listView = (ListView) findViewById(R.id.listView);
         ArrayList<Map<String, String>> data = new ArrayList<Map<String, String>>(
@@ -62,6 +69,58 @@ public class OrdersActivity extends Activity {
                 Intent intent = new Intent(OrdersActivity.this, Information.class);
                 intent.putExtra(PID, pizzas[position].id);
                 startActivity(intent);
+            }
+        });
+        setLongClick();
+    }
+
+    private void setLongClick() {
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(OrdersActivity.this);
+                builder.setMessage(getResources().getString(R.string.chooseaction));
+                final int pos = position;
+                builder.setNegativeButton(getResources().getString(R.string.delete), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AlertDialog.Builder check = new AlertDialog.Builder(OrdersActivity.this);
+                        check.setMessage(getResources().getString(R.string.checkdelete));
+                        check.setCancelable(false);
+                        check.setNegativeButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String[] allTimes = getResources().getStringArray(R.array.times);
+                                String[] allSpeeds = getResources().getStringArray(R.array.speeds);
+                                int timePosition = 0;
+                                for (int i = 0; i < allTimes.length; i++) {
+                                    if (allTimes[i].equals(pizzas[pos].time)) timePosition = i;
+                                }
+                                int speedPosition = 0;
+                                for (int i = 0; i < allSpeeds.length; i++) {
+                                    if (allSpeeds[i].equals(pizzas[pos].speed)) speedPosition = i;
+                                }
+                                for (int i = 0; i <= speedPosition; i++) {
+                                    dbc.delete(Integer.toString(pizzas[pos].cur), allTimes[timePosition + i]);
+                                }
+                                db.deletePizza(pizzas[pos].id);
+                                makeList();
+                            }
+                        });
+                        check.setPositiveButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        check.show();
+                    }
+                });
+                builder.show();
+
+
+
+                return false;
             }
         });
     }
