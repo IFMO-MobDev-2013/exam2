@@ -45,13 +45,13 @@ public class MainScreenActivity extends Activity{
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), AddCarActivity.class);
+                Intent intent = new Intent(getBaseContext(), AddPizzaActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getBaseContext().startActivity(intent);
             }
         });
         ListView lv = (ListView)findViewById(R.id.car_schedule);
-        lv.setAdapter(new CarAdapter(this));
+        lv.setAdapter(new PizzaAdapter(this));
     }
 
     private void initDatabase() {
