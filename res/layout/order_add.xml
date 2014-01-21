@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:padding="0dp"
+            android:layout_gravity="left"
+            android:textColor="#FFF"
+            android:textSize="16dp"
+            android:text="Время:"
+            />
+    <Spinner android:id="@+id/time"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="0dp"
+             android:layout_marginLeft="3dp"
+             android:layout_marginRight="3dp"
+             android:layout_gravity="center_horizontal"
+             android:entries="@array/time"></Spinner>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:padding="0dp"
+            android:layout_gravity="left"
+            android:textColor="#FFF"
+            android:textSize="16dp"
+            android:text="Предполагаемое время доставки:"
+            />
+    <Spinner android:id="@+id/time_arr"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="0dp"
+             android:layout_marginLeft="3dp"
+             android:layout_marginRight="3dp"
+             android:layout_marginBottom="5dp"
+             android:layout_gravity="center_horizontal"
+             android:entries="@array/time_to_arrive"></Spinner>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1">
+        <EditText
+                android:id="@+id/order_edit_number"
+                android:ems="20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#555"
+                android:textSize="16dp"
+                android:hint="Phone Number"
+                />
+        <EditText
+                android:id="@+id/order_edit_pizza"
+                android:ems="20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#555"
+                android:textSize="16dp"
+                android:hint="Pizza"
+                />
+    </LinearLayout>
+
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/order_add_button"
+            android:text="All Done"></Button>
+
+</LinearLayout>

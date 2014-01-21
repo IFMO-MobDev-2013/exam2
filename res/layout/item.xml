@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+    <TextView
+            android:text="Peperony"
+            android:id="@+id/pizza"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:textColor="#000"
+            android:textSize="18sp">
+    </TextView>
+    <TextView
+            android:text="1"
+            android:id="@+id/courier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="40dp"
+            android:textColor="#000"
+            android:textSize="18sp">
+    </TextView>
+    <TextView
+            android:text="10:10"
+            android:id="@+id/time"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="#000"
+            android:textSize="18sp">
+    </TextView>
+</LinearLayout>
