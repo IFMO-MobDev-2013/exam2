@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите название пиццерии :"
+            android:id="@+id/textView" android:layout_marginTop="50dp" android:layout_marginLeft="10dp"/>
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint = "Пицца вкусная"
+            android:id="@+id/editTextName" android:layout_marginTop="7dp"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Введите количество курьеров :"
+            android:id="@+id/textView" android:layout_marginTop="10dp" android:layout_marginLeft="10dp"/>
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint = "3"
+            android:id="@+id/editTextBoxNumber" android:layout_marginTop="7dp"/>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Добавить"
+            android:id="@+id/buttonAdd" android:layout_marginTop="15dp"/>
+
+</LinearLayout>
