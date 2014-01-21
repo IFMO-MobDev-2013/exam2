@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        >
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ButtonNewOrder"
+            android:id="@+id/buttonMainNew" style="@style/BigStyleBlack" android:focusableInTouchMode="false"
+            android:onClick="newOrder"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal"
+                  android:layout_width="fill_parent" android:layout_height="wrap_content"
+                  android:id="@+id/linearLayout">
+        <TextView style="@style/MediumStyle" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                  android:text="@string/TextModel" android:id="@+id/textViewOrderModel" android:layout_weight="1"/>
+        <TextView style="@style/MediumStyle" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                  android:text="@string/TimeText" android:id="@+id/textViewOrderTime" android:layout_weight="2"
+                  android:singleLine="false"/>
+        <TextView style="@style/MediumStyle" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                  android:text="@string/CourierText" android:id="@+id/textViewOrderBox" android:layout_weight="2"/>
+    </LinearLayout>
+    <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/listViewMain"/>
+</LinearLayout>
+
