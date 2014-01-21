@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+    <Space
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/spinner"
+            android:layout_weight="1"
+            android:entries="@array/time_list"/>
+
+    <TimePicker
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/timePicker"
+            android:layout_weight="2"/>
+
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:text="Edit"
+            android:id="@+id/button"
+            android:layout_weight="1"/>
+
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:text="Delete"
+            android:id="@+id/button2"
+            android:layout_weight="1"/>
+
+    <Space
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+</LinearLayout>
