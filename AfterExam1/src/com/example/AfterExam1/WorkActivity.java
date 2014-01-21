@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 public class WorkActivity extends Activity {
     private DataBase dataBase;
-    private ArrayList<Order> arrayList = new ArrayList<Order>();
+    public static int mainIndex = -1;
+    public static ArrayList<Order> arrayList = new ArrayList<Order>();
     private CustomAdapter customAdapter;
     public static final String KEY_FOR_SOME_TIME = "key_for_some_time";
     public static final String KEY_FOR_SOME_BOX = "key_for_some_box";
@@ -34,7 +35,14 @@ public class WorkActivity extends Activity {
             }
         });
 
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int index, long arg) {
+                Intent intent = new Intent (WorkActivity.this, SomeOrder.class);
+                mainIndex = index;
+                startActivity(intent);
+            }
+         });
        // listView.setOnClickListener(new AdapterView.OnItemClickListener());
        // listView.setOnClickListener(new AdapterView.OnItemClickListener());
 
