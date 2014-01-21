@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">exam1</string>
+    <string name="createmarket">Создать</string>
+    <string name="marketname">Название</string>
+    <string name="numbcoutier">Количество курьеров</string>
+    <string name="defmarketname">пицца вкусная</string>
+    <string name="defnumbcourier">3</string>
+    <string name="addclient">Добавить заказ</string>
+    <string name="pizzaname">Название</string>
+    <string name="telephone">Телефон</string>
+    <string name="place">Адрес</string>
+    <string name="delivery">Время доставки</string>
+    <string name="time">Время выхода</string>
+</resources>
