@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TastyPizza</string>
+    <string name="enter_name">Введите название пиццерии</string>
+    <string name="enter_boxcount">Введите количество курьеров</string>
+    <string name="enter_button">Принять</string>
+    <string name="typename">Пицца вкусная</string>
+    <string name="chooseaction">Выберите действие</string>
+    <string name="delete">Удалить</string>
+    <string name="change">Изменить</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="checkdelete">Вы уверены, что хотите удалить заказ?</string>
+    <string name="typeboxcount">3</string>
+    <string name="toastalldigits">Количество боксов должно быть числом!</string>
+    <string name="toastnonnull">Название не должно быть пустым</string>
+    <string name="name">name</string>
+    <string name="time">time</string>
+    <string name="cur">cur</string>
+    <string name="pizza">pizza</string>
+    <string name="phone">phone</string>
+    <string name="setname">Название пиццы: </string>
+    <string name="setspeed">Скорость доставки: </string>
+    <string name="setphone">Номер телефона: </string>
+    <string name="setadress">Адрес:</string>
+    <string name="settime">Время: </string>
+    <string name="setcur">Курьер: </string>
+    <string name="addpizza">Добавить</string>
+    <string name="writename">Название пиццы</string>
+    <string name="writeadress">Адрес</string>
+    <string name="writespeed">Скорость доставки</string>
+    <string name="writephone">Номер телефона</string>
+    <array name="speeds">
+        <item>0:30</item>
+        <item>1:00</item>
+        <item>1:30</item>
+    </array>
+    <array name="times">
+        <item>10:00</item>
+        <item>10:30</item>
+        <item>11:00</item>
+        <item>11:30</item>
+        <item>12:00</item>
+        <item>12:30</item>
+        <item>13:00</item>
+        <item>13:30</item>
+        <item>14:00</item>
+        <item>14:30</item>
+        <item>15:00</item>
+        <item>15:30</item>
+        <item>16:00</item>
+        <item>16:30</item>
+        <item>17:00</item>
+        <item>17:30</item>
+        <item>18:00</item>
+        <item>18:30</item>
+        <item>19:00</item>
+        <item>19:30</item>
+        <item>20:00</item>
+        <item>20:30</item>
+        <item>21:00</item>
+        <item>21:30</item>
+        <item>22:00</item>
+        <item>22:30</item>
+        <item>23:00</item>
+        <item>23:30</item>
+    </array>
+</resources>

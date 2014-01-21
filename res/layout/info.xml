@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/textview_bg">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setname"
+            android:id="@+id/name" android:layout_gravity="center_horizontal" android:textSize="19dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setadress"
+            android:id="@+id/adress" android:textSize="19dp" android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setspeed"
+            android:id="@+id/speed" android:layout_gravity="center_horizontal" android:textSize="19dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setphone"
+            android:id="@+id/phone" android:layout_gravity="center_horizontal" android:textSize="19dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settime"
+            android:id="@+id/time" android:layout_gravity="center_horizontal" android:textSize="19dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/setcur"
+            android:id="@+id/cur" android:layout_gravity="center_horizontal" android:textSize="19dp"/>
+</LinearLayout>
