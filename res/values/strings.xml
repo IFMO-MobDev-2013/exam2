@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pizza manager</string>
+    <string name="pizza_name">Введите название пицерии</string>
+    <string name="pizza_name_def">пицца вкусная</string>
+    <string name="pizza_delivery">Введите количество курьеров</string>
+    <string name="pizza_delivery_def">3</string>
+    <string name="pizza_add">Ок</string>
+    <string name="pizza_type">Введите тип пиццы</string>
+    <string name="pizza_tel_number">Введите телефон</string>
+    <string name="pizza_time">Время</string>
+    <string name="the_pizza_type">Тип пиццы</string>
+    <string name="the_pizza_tel_number">Номер телефона</string>
+    <string name="the_pizza_delivery">Доставляет курьер</string>
+    <string name="the_pizza_time">Время доставки</string>
+    <string name="delete_pizza">Удалить</string>
+    <string name="delivery_time">Время необходимое для доставки</string>
+    <string name="pizza_need_time">Время необходимое для доставки</string>
+    <string name="pizza_start_delivery">Начало доставки</string>
+
+    <string-array name="delivery_time_var">
+        <item>0:30</item>
+        <!--<item>1:00</item>-->
+        <!--<item>1:30</item>-->
+    </string-array>
+</resources>
