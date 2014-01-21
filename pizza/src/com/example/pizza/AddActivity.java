@@ -35,8 +35,6 @@ public class AddActivity extends Activity {
             public void onNothingSelected(AdapterView<?> adapter) {
             }
         });
-        Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
-        spinner1.setClickable(false);
     }
 
     private int getCR() {
@@ -45,25 +43,19 @@ public class AddActivity extends Activity {
         List<Order> orders = databaseHandler.getOrders();
         List<Integer> tm = new ArrayList<Integer>();
         for (int i = 0; i < orders.size(); i++) {
-            for (int j = orders.get(i).beg; j < orders.get(i).beg + orders.get(i).len; j++) {
+            for (int j = orders.get(i).beg - orders.get(i).len - 1; j < orders.get(i).beg; j++) {
                 t[orders.get(i).cr][j] = true;
             }
         }
-        for (int i = 0; i < 26; i++) {
-            boolean av = false;
-            for (int j = 0; j < databaseHandler.getBoxNum(); j++) {
-                boolean m = true;
-                for (int k = i; k < i + len; k++) {
-                    if (t[j][k]) {
-                        m = false;
-                    }
-                }
-                if (m) {
-                    return j;
+        for (int j = 0; j < databaseHandler.getBoxNum(); j++) {
+            boolean m = true;
+            for (int k = time - len - 1; k < time; k++) {
+                if (t[j][k]) {
+                    m = false;
                 }
             }
-            if (av) {
-                tm.add(i);
+            if (m) {
+                return j;
             }
         }
         return -1;
@@ -75,15 +67,15 @@ public class AddActivity extends Activity {
         List<Order> orders = databaseHandler.getOrders();
         List<Integer> tm = new ArrayList<Integer>();
         for (int i = 0; i < orders.size(); i++) {
-            for (int j = orders.get(i).beg; j < orders.get(i).beg + orders.get(i).len; j++) {
+            for (int j = orders.get(i).beg - orders.get(i).len - 1; j < orders.get(i).beg; j++) {
                 t[orders.get(i).cr][j] = true;
             }
         }
-        for (int i = 0; i < 26; i++) {
+        for (int i = len + 1; i < 29; i++) {
             boolean av = false;
             for (int j = 0; j < databaseHandler.getBoxNum(); j++) {
                 boolean m = true;
-                for (int k = i; k < i + len; k++) {
+                for (int k = i - 1; k >= i - 1 - len; k--) {
                     if (t[j][k]) {
                         m = false;
                     }
@@ -112,14 +104,21 @@ public class AddActivity extends Activity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapter, View view, int position, long id) {
-                time = position;
+                String s = (String) adapter.getSelectedItem();
+                for (int i = 10; i < 25; i++) {
+                    if (s.equals(Integer.toString(i) + ":00")) {
+                        time = 2 * (i - 10);
+                    }
+                    if (s.equals(Integer.toString(i) + ":30")) {
+                        time = 2 * (i - 10) + 1;
+                    }
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapter) {
             }
         });
-        spinner.setClickable(true);
     }
 
     public void onAdd(View view) {

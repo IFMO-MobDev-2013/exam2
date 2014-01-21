@@ -29,7 +29,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        String CreateCarsTable = "CREATE TABLE " + DATABASE_TABLE + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " STRING," + KEY_BEG + " INTEGER," + KEY_LEN + " INTEGER," + KEY_CR + " INTEGER," + ")";
+        String CreateCarsTable = "CREATE TABLE " + DATABASE_TABLE + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " STRING," + KEY_BEG + " INTEGER," + KEY_LEN + " INTEGER," + KEY_CR + " INTEGER" + ")";
         database.execSQL(CreateCarsTable);
         String CreateCCTable = "CREATE TABLE " + DATABASE_TABLE_CC + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_CNAME + " STRING," + KEY_BOXN + " INTEGER" + ")";
         database.execSQL(CreateCCTable);

@@ -37,6 +37,9 @@ public class MyActivity extends Activity {
     List<Order> getSO() {
         DatabaseHandler databaseHandler = new DatabaseHandler(this);
         List<Order> orders = databaseHandler.getOrders();
+        for (int i = 0; i < orders.size(); i++) {
+            orders.get(i).beg -= orders.get(i).len + 1;
+        }
         int i = 1;
         while (i < orders.size()) {
             if (orders.get(i).beg < orders.get(i - 1).beg) {
@@ -57,7 +60,7 @@ public class MyActivity extends Activity {
         List<Order> cars = getSO();
         String[] array = new String[cars.size()];
         for (int i = 0; i < cars.size(); i++) {
-            array[i] = cars.get(i).name + " " + cars.get(i).cr + " " + getResources().getStringArray(R.array.time)[cars.get(i).beg];
+            array[i] = cars.get(i).name + "   " + (cars.get(i).cr + 1) + "   " + getResources().getStringArray(R.array.time)[cars.get(i).beg];
         }
         ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array);
         ListView listView = (ListView) findViewById(R.id.listView);
