@@ -169,6 +169,8 @@ public class MyActivity extends Activity {
             intent.putExtra(Order.LENGTH, order.length);
             intent.putExtra(Order.BOX, order.box);
 
+            intent.putExtra(MyDataBasePizzasHelper._ID, arrayID_2.get(currentPosition));
+
             intent.putExtra(Order.NEWORDER, false);
             intent.putExtra(Order.EDITABLE, true);
             intent.putExtra(Order.USESTABLE, useTime);

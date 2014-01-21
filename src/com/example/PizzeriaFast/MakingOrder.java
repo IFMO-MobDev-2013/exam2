@@ -54,7 +54,11 @@ public class MakingOrder extends Activity {
             ContentValues contentValues = order.getContentValues();
             MyDataBasePizzasHelper myDataBasePizzasHelper = new MyDataBasePizzasHelper(getApplicationContext());
             SQLiteDatabase sqLiteDatabase = myDataBasePizzasHelper.getWritableDatabase();
-            sqLiteDatabase.insert(MyDataBasePizzasHelper.DATABASE_NAME, null, contentValues);
+            if(newOrder)
+                sqLiteDatabase.insert(MyDataBasePizzasHelper.DATABASE_NAME, null, contentValues);
+            else
+                sqLiteDatabase.update(MyDataBasePizzasHelper.DATABASE_NAME, contentValues, MyDataBasePizzasHelper._ID + "=" +
+                        getIntent().getIntExtra(MyDataBasePizzasHelper._ID, 0), null);
 
             sqLiteDatabase.close();
             myDataBasePizzasHelper.close();
