@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_weight="10">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pizzaname"
+                android:id="@+id/textView" android:layout_gravity="center"/>
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/pizzaname" android:layout_gravity="center" android:singleLine="true"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_weight="10">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/telephone"
+                  android:id="@+id/textView1" android:layout_gravity="center"/>
+        <EditText android:layout_width="fill_parent" android:layout_height="wrap_content" android:text=""
+                  android:id="@+id/telephone" android:layout_gravity="center" android:singleLine="true"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_weight="10">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/place"
+                  android:id="@+id/textView2" android:layout_gravity="center"/>
+        <EditText android:layout_width="fill_parent" android:layout_height="wrap_content" android:text=""
+                  android:id="@+id/place" android:layout_gravity="center" android:singleLine="true"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:layout_weight="10">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/delivery"
+                  android:id="@+id/textView3" android:layout_gravity="center"/>
+        <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner" android:layout_gravity="center"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                  android:layout_height="fill_parent" android:layout_weight="10" android:id="@+id/linearLayout">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/time"
+                  android:id="@+id/textView4" android:layout_gravity="center"/>
+        <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner1" android:layout_gravity="center"/>
+    </LinearLayout>
+    <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/addclient"
+            android:id="@+id/addclient"/>
+</LinearLayout>
