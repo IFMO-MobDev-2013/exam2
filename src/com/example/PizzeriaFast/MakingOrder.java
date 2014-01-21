@@ -54,7 +54,7 @@ public class MakingOrder extends Activity {
             ContentValues contentValues = order.getContentValues();
             MyDataBasePizzasHelper myDataBasePizzasHelper = new MyDataBasePizzasHelper(getApplicationContext());
             SQLiteDatabase sqLiteDatabase = myDataBasePizzasHelper.getWritableDatabase();
-            if(newOrder)
+            if (newOrder)
                 sqLiteDatabase.insert(MyDataBasePizzasHelper.DATABASE_NAME, null, contentValues);
             else
                 sqLiteDatabase.update(MyDataBasePizzasHelper.DATABASE_NAME, contentValues, MyDataBasePizzasHelper._ID + "=" +
@@ -70,21 +70,21 @@ public class MakingOrder extends Activity {
     void nextStep() {
         array = new ArrayList<CharSequence>();
 
-            for (int i = 0; i < 30; i++) {
-                boolean q = true;
-                for (int j = 0; j < lengthOfOrder; j++)
-                    if (uses[i] >= ourBoxes)
-                        q = false;
-                if (q)
-                    array.add(Order.makeTime(i));
-            }
+        for (int i = 0; i < 30; i++) {
+            boolean q = true;
+            for (int j = 0; j < lengthOfOrder; j++)
+                if (uses[i] >= ourBoxes)
+                    q = false;
+            if (q)
+                array.add(Order.makeTime(i));
+        }
 
         adapter = new ArrayAdapter<CharSequence>(getApplicationContext(), android.R.layout.simple_spinner_item, array);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTime.setAdapter(adapter);
 
-        if(!newOrder)
+        if (!newOrder)
             spinnerTime.setSelection(order.time);
         adapter.notifyDataSetChanged();
 

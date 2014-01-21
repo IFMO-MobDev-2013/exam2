@@ -1,21 +1,22 @@
 package com.example.PizzeriaFast;
 
 import android.app.*;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.*;
+import android.view.ActionMode;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MyActivity extends Activity {
 
@@ -114,15 +115,14 @@ public class MyActivity extends Activity {
         myDataBasePizzasHelper.close();
 
         boolean use_temp[] = new boolean[100];
-        for(int i = 0; i < array.size(); i++)
+        for (int i = 0; i < array.size(); i++)
             use_temp[i] = false;
 
         adapter = new MyAdapter(getApplicationContext(), R.layout.orderitem, new ArrayList<Order>());
-        for(int i = 0; i < array.size(); i++)
-        {
+        for (int i = 0; i < array.size(); i++) {
             int j0 = -1;
-            for(int j = 0; j < array.size(); j++)
-                if(!use_temp[j] && (j0 == -1 || array.get(j).time < array.get(j0).time))
+            for (int j = 0; j < array.size(); j++)
+                if (!use_temp[j] && (j0 == -1 || array.get(j).time < array.get(j0).time))
                     j0 = j;
             adapter.add(array.get(j0));
             arrayID_2.add(arrayID.get(j0));
@@ -158,29 +158,27 @@ public class MyActivity extends Activity {
         }
     };
 
-    public void goToOrderEditable()
-    {
-            Intent intent = new Intent();
+    public void goToOrderEditable() {
+        Intent intent = new Intent();
 
-            Order order = adapter.getItem(currentPosition);
-            intent.putExtra(Order.TIME, order.time);
-            intent.putExtra(Order.MODEL, order.model);
-            intent.putExtra(Order.PHONE, order.phone);
-            intent.putExtra(Order.LENGTH, order.length);
-            intent.putExtra(Order.BOX, order.box);
+        Order order = adapter.getItem(currentPosition);
+        intent.putExtra(Order.TIME, order.time);
+        intent.putExtra(Order.MODEL, order.model);
+        intent.putExtra(Order.PHONE, order.phone);
+        intent.putExtra(Order.LENGTH, order.length);
+        intent.putExtra(Order.BOX, order.box);
 
-            intent.putExtra(MyDataBasePizzasHelper._ID, arrayID_2.get(currentPosition));
+        intent.putExtra(MyDataBasePizzasHelper._ID, arrayID_2.get(currentPosition));
 
-            intent.putExtra(Order.NEWORDER, false);
-            intent.putExtra(Order.EDITABLE, true);
-            intent.putExtra(Order.USESTABLE, useTime);
-            intent.setClass(getApplicationContext(), MakingOrder.class);
-            startActivity(intent);
+        intent.putExtra(Order.NEWORDER, false);
+        intent.putExtra(Order.EDITABLE, true);
+        intent.putExtra(Order.USESTABLE, useTime);
+        intent.setClass(getApplicationContext(), MakingOrder.class);
+        startActivity(intent);
 
     }
 
-    public void deleteOrder()
-    {
+    public void deleteOrder() {
         int delID = arrayID_2.get(currentPosition);
 
         MyDataBasePizzasHelper myDataBasePizzasHelper = new MyDataBasePizzasHelper(getApplicationContext());
